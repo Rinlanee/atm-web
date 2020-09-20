@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/main_layout}"
+      xmlns:th="https://www.thymeleaf.org">
+
+
+<div class="container" layout:fragment="content">
+    <div class="container my-3">
+        <h1 class="display-3 my-font text-center" th:text="${header}"></h1>
+        <h5 class="display-5 text-center">So glad for trusting us to take care of your money</h5>
+    </div>
+
+    <div class="container text-center mt-5">
+        <a th:href="@{/customer}" class="btn btn-primary">
+            Register
+        </a>
+    </div>
+</div>
+
+</html>
