@@ -30,11 +30,11 @@ public class LoginController {
         Customer matched = customerService.checkPin(customer);
 
         if (matched != null) {
-            model.addAttribute("header", "Welcome, " + matched.getName());
+            model.addAttribute("greeting", "Welcome, " + matched.getName());
         } else {
-            model.addAttribute("header", "Sorry, this id doesn't exist");
+            model.addAttribute("greeting", "Sorry, this id doesn't exist");
         }
 
-        return "redirect:home";
+        return "home";
     }
 }
