@@ -34,7 +34,7 @@ public class CustomerService {
             return null;
         }
     }
-    public List<Customer> getCustomer() {
+    public List<Customer> getCustomers() {
         return repository.findAll();
     }
 
