@@ -19,19 +19,19 @@ public class BankAccountController {
         this.bankAccountService = customerService;
     }
 
-    @GetMapping
-    public String getBankAccountPage(Model model) {
-
-        model.addAttribute("allAccounts", bankAccountService.getAccount());
-
-        return "bankaccount"; // html filename
-    }
-
-    @PostMapping
-    public String createAccount(@ModelAttribute BankAccount account, Model model) {
-        bankAccountService.createAccount(account);
-        model.addAttribute("allAccounts", bankAccountService.getAccount());
-
-        return "redirect:bank_account"; // redirect: used to prevent calling this method again; after ':' <URI>
-    }
+//    @GetMapping
+//    public String getBankAccountPage(Model model) {
+//
+//        model.addAttribute("allAccounts", bankAccountService.getAccount());
+//
+//        return "bankaccount"; // html filename
+//    }
+//
+//    @PostMapping
+//    public String createAccount(@ModelAttribute BankAccount account, Model model) {
+//        bankAccountService.createAccount(account);
+//        model.addAttribute("allAccounts", bankAccountService.getAccount());
+//
+//        return "redirect:bank_account"; // redirect: used to prevent calling this method again; after ':' <URI>
+//    }
 }
