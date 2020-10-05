@@ -10,6 +10,7 @@ public class BankAccount {
     private String type;
     private double balance;
 
+
     public int getId() {
         return id;
     }
@@ -40,6 +41,14 @@ public class BankAccount {
 
     public void setBalance(double balance) {
         this.balance = balance;
+    }
+
+    public void deposit(double amount) {
+        this.balance = balance+amount;
+    }
+
+    public void withdraw(double amount) {
+        this.balance = balance-amount;
     }
 
     @Override

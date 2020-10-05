@@ -36,22 +36,6 @@ public class BankAccountController {
         return "bankaccount-edit";
     }
 
-    @PostMapping("/edit/{id}")
-    public String editAccount(@PathVariable int id,
-                              @ModelAttribute BankAccount bankAccount,
-                              Model model) {
-
-        bankAccountService.editBankAccount(bankAccount);
-        model.addAttribute("bankaccounts",bankAccountService.getBankAccounts());
-        return "redirect:/bankaccount";
-    }
-
-    @GetMapping("/delete/{id}")
-    public String getDeleteBankAccountPage(@PathVariable int id, Model model) {
-        BankAccount bankAccount = bankAccountService.getBankAccount(id);
-        model.addAttribute("bankAccount", bankAccount);
-        return "bankaccount-edit";
-    }
     @PostMapping("/delete/{id}")
     public String deleteAccount(@PathVariable int id,
                               @ModelAttribute BankAccount bankAccount,
@@ -61,5 +45,26 @@ public class BankAccountController {
         model.addAttribute("bankaccounts",bankAccountService.getBankAccounts());
         return "redirect:/bankaccount";
     }
+
+
+    @PostMapping("/deposit/{id}")
+    public String balanceAfterDeposit(@PathVariable int id, @RequestParam("amount") String amount) {
+        BankAccount bankAccount = bankAccountService.getBankAccount(id);
+        bankAccount.deposit(Float.parseFloat(amount));
+        bankAccountService.editBankAccount(bankAccount);
+
+        return "redirect:/bankaccount";
+    }
+
+    @PostMapping("/withdraw/{id}")
+    public String balanceAfterWithdraw(@PathVariable int id, @RequestParam("amount") String amount) {
+        BankAccount bankAccount = bankAccountService.getBankAccount(id);
+        bankAccount.withdraw(Float.parseFloat(amount));
+        bankAccountService.editBankAccount(bankAccount);
+
+        return "redirect:/bankaccount";
+    }
+
+
 
 }

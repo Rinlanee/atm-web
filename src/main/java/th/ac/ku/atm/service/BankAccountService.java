@@ -66,9 +66,6 @@ public class BankAccountService {
         restTemplate.delete(url, bankAccount);
     }
 
-
-
-
 //    @PostConstruct
 //    public void postConstruct() {
 //        this.bankAccountList = new ArrayList<>();
